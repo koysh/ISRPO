@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Результаты вычислений";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <h2>@ViewData["Title"]</h2>
+
+    <form method="post">
+        <label for="numbers">Введите массив чисел:</label>
+        <input type="text" id="numbers" name="numbers" required>
+        <button type="submit">Вычислить</button>
+    </form>
+
+    @if (ViewBag.SumOfSquares != null && ViewBag.SumOfCubes != null)
+    {
+        <p>Сумма квадратов элементов с четными индексами: @ViewBag.SumOfSquares</p>
+        <p>Сумма кубов элементов с четными индексами: @ViewBag.SumOfCubes</p>
+    }
+    else
+    {
+        <p class="text-danger">@ViewBag.ErrorMessage</p>
+    }
+</body>
+</html>
